@@ -22,8 +22,7 @@ class Data extends Component {
     }
 
     sortdirection = () => {
-
-        render() {
+        render(); {
             return (
 
                     <div> <Table/> </div>
