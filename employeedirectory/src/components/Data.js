@@ -21,13 +21,7 @@ class Data extends Component {
         };
     }
 
-    componentDidMount() {
-        API.getemployee().then((res) =>
-            this.setState({ employee: res.data.results, filterEmployee: res.data.results, }))
-            .catch((err) => console.log(err));
-    }
-
-    sortdirection = (key, primary = 0, secondary = 0) => {
+    sortdirection = () => {
 
         render() {
             return (
