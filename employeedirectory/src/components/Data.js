@@ -31,10 +31,10 @@ class Data extends Component {
 
         render() {
             return (
-                <>
+
                     <div> <Table/> </div>
-                </>
             );
         }
     }
 }
+export default Data
