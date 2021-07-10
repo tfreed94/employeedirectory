@@ -5,18 +5,36 @@ import "../styling/data.css";
 
 class Data extends Component {
     state = {
-        employee: [],
-        filteredEmployee: [],
         search: "",
-        sortDirections: this.sortDirection,
-    }
-    get sortDirection() {
+        employee: [],
+        filterEmployee: [],
+        direction: this.direction,
+    };
+    get direction() {
         return {
-            age: '',
-            phone: '',
-            location: '',
-            phone: '',
-            email: '' 
+            name: "",
+            email: "",
+            phone: "",
+            age: "",
+            location: "",
+
+        };
+    }
+
+    componentDidMount() {
+        API.getemployee().then((res) =>
+            this.setState({ employee: res.data.results, filterEmployee: res.data.results, }))
+            .catch((err) => console.log(err));
+    }
+
+    sortdirection = (key, primary = 0, secondary = 0) => {
+
+        render() {
+            return (
+                <>
+                    <div> <Table/> </div>
+                </>
+            );
         }
     }
 }
