@@ -22,9 +22,9 @@ class Data extends Component {
     };
     componentDidMount() {
         API.getEmployees().then((res) => this.setState({
-                employees: res.data.results,
-                filteredEmp: res.data.results,
-            }))
+            employees: res.data.results,
+            filteredEmp: res.data.results,
+        }))
     }
 
     sortEmpInfo = (key, primNum = 0, secNum = 0) => {
@@ -33,8 +33,9 @@ class Data extends Component {
         if (this.state.empInfo[key]) {
             this.setState({
                 filteredEmp: sortEmp.reverse(),
-                empInfo: { ...this.empInfo,
-                [key]: this.state.empInfo[key] === "asc" ? "desc" : "asc",
+                empInfo: {
+                    ...this.empInfo,
+                    [key]: this.state.empInfo[key] === "asc" ? "desc" : "asc",
                 },
             });
         }
@@ -63,14 +64,12 @@ class Data extends Component {
 
     render() {
         return (
-            <>
-                <div className="container">
-                    <Table
-                        state={this.state}
-                        sortEmpInfo={this.sortEmpInfo}
-                    />
-                </div>
-            </>
+            <div className="container">
+                <Table
+                    state={this.state}
+                    sortEmpInfo={this.sortEmpInfo}
+                />
+            </div>
         );
     }
 }
