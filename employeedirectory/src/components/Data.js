@@ -25,8 +25,7 @@ class Data extends Component {
         }))
     }
 
-    sortEmpInfo = (key, primNum = 0, secNum = 0) => {
-
+    sortEmpInfo = (key) => {
         let sortEmp = this.state.filteredEmp;
         if (this.state.empInfo[key]) {
             this.setState({
@@ -37,27 +36,13 @@ class Data extends Component {
                 },
             });
         }
-        else {
-            sortEmp = this.state.filteredEmp.sort((a, b) => {
-                a = a[key];
-                b = b[key];
-                if (primNum) {
-                    if (secNum && a[primNum] === b[primNum]) {
-                        return a[secNum].localeCompare(b[secNum]);
-                    }
-                    return a[primNum].localeCompare(b[primNum]);
-                } else {
-                    return a.localeCompare(b);
-                }
-            });
+        this.setState({
+            filteredEmp: sortEmp,
+            empInfo: {
+                ...this.empInfo, [key]: "asc",
+            },
+        });
 
-            this.setState({
-                filteredEmp: sortEmp,
-                empInfo: {
-                    ...this.empInfo, [key]: "asc",
-                },
-            });
-        }
     };
 
     render() {
