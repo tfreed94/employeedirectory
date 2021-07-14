@@ -28,12 +28,7 @@ class Data extends Component {
     sortEmpInfo = (key) => {
         let sortEmp = this.state.filteredEmp;
         if (this.state.empInfo[key]) {
-            this.setState({
-                filteredEmp: sortEmp.reverse(),
-                empInfo: {
-                    ...this.empInfo,
-                    [key]: this.state.empInfo[key] === "asc" ? "desc" : "asc",
-                },
+            this.setState({filteredEmp: sortEmp.reverse(),
             });
         }
         this.setState({
