@@ -21,12 +21,10 @@ class Data extends Component {
         event.preventDefault();
     };
     componentDidMount() {
-        API.getEmployees()
-            .then((res) => this.setState({
+        API.getEmployees().then((res) => this.setState({
                 employees: res.data.results,
                 filteredEmp: res.data.results,
-            })
-            )
+            }))
     }
 
     sortEmpInfo = (key, primNum = 0, secNum = 0) => {
