@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styling/header'
 
 const header = () => {
     return (
