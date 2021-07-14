@@ -4,16 +4,14 @@ import API from '../utils/API'
 
 class Data extends Component {
     state = {
-        search: "",
         employees: [],
-        employeefilter: [],
-        params: this.params,
+        filteredEmp: [],
+        empInfo: this.empInfo,
     };
-    get params() {
+    get empInfo() {
         return {
             location: "",
             phone: "",
-            age: "",
             name: "",
             email: "",
 
@@ -24,48 +22,42 @@ class Data extends Component {
     };
     componentDidMount() {
         API.getEmployees()
-            .then((res) =>
-                this.setState({
-                    employees: res.data.results,
-                    employeefilter: res.data.results,
-                })
+            .then((res) => this.setState({
+                employees: res.data.results,
+                filteredEmp: res.data.results,
+            })
             )
-            .catch((err) => console.log(err));
     }
 
-    sortParams = (key, primary = 0, secondary = 0) => {
+    sortEmpInfo = (key, primNum = 0, secNum = 0) => {
 
-        let employeeSorted = this.state.employeefilter;
-        if (this.state.params[key]) {
+        let sortEmp = this.state.filteredEmp;
+        if (this.state.empInfo[key]) {
             this.setState({
-                employeefilter: employeeSorted.reverse(),
-                params: {
-                    ...this.params,
-                    [key]: this.state.params[key] === "asc" ? "desc" : "asc",
+                filteredEmp: sortEmp.reverse(),
+                empInfo: { ...this.empInfo,
+                [key]: this.state.empInfo[key] === "asc" ? "desc" : "asc",
                 },
             });
         }
         else {
-            employeeSorted = this.state.employeefilter.sort((a, b) => {
+            sortEmp = this.state.filteredEmp.sort((a, b) => {
                 a = a[key];
                 b = b[key];
-
-
-                if (primary) {
-                    if (secondary && a[primary] === b[primary]) {
-                        return a[secondary].localeCompare(b[secondary]);
+                if (primNum) {
+                    if (secNum && a[primNum] === b[primNum]) {
+                        return a[secNum].localeCompare(b[secNum]);
                     }
-                    return a[primary].localeCompare(b[primary]);
+                    return a[primNum].localeCompare(b[primNum]);
                 } else {
                     return a.localeCompare(b);
                 }
             });
 
             this.setState({
-                employeefilter: employeeSorted,
-                params: {
-                    ...this.params,
-                    [key]: "asc",
+                filteredEmp: sortEmp,
+                empInfo: {
+                    ...this.empInfo, [key]: "asc",
                 },
             });
         }
@@ -74,10 +66,10 @@ class Data extends Component {
     render() {
         return (
             <>
-                <div className="container mt-4">
+                <div className="container">
                     <Table
                         state={this.state}
-                        sortParams={this.sortParams}
+                        sortEmpInfo={this.sortEmpInfo}
                     />
                 </div>
             </>

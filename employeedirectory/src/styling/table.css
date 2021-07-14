@@ -1,0 +1,10 @@
+.sort:hover {
+    background-color: rgb(241, 234, 234);
+    cursor: pointer;
+}
+.icon {
+    font-size: 100%;
+}
+.table{
+    background-color: rgb(240, 222, 164);
+}

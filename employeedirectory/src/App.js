@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from './components/Header.js';
-import Data from './components/Data';
+import Data from './components/Data.js';
+import "bootstrap-icons/font/bootstrap-icons.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
