@@ -28,9 +28,7 @@ const Table = (comp) => {
                                 <img src={employee.picture.large} alt='employee name' />
                             </td>
                             <td className="align-middle">{name}</td>
-                            <td className="align-middle">
-                                <a href={`mailto:${employee.email}`}>{employee.email}</a>
-                            </td>
+                            <td className="align-middle"> <a href={`mailto:${employee.email}`}>{employee.email}</a> </td>
                             <td className="align-middle">
                                 <span>{location}</span>
                             </td>
