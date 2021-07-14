@@ -8,23 +8,20 @@ const Table = (comp) => {
                 <tr>
                     <th scope="col"></th>
                     <th scope="col">
-                        <span onClick={() => comp.sortEmpInfo("name", "first", "last")}>
-                            Name <i class="bi bi-filter sort icon"></i>
-                        </span></th>
+                        <span onClick={() => comp.sortEmpInfo("name", "first", "last")}> Name 
+                        <i class="bi bi-filter sort icon"></i></span></th>
                     <th scope="col">Email</th>
                     <th scope="col">
-                        <span onClick={() => comp.sortEmpInfo("location", "state", "city")}>
-                            Location <i class="bi bi-filter sort icon"></i>
-                        </span>
-                    </th>
+                        <span onClick={() => comp.sortEmpInfo("location", "state", "city")}>Location 
+                        <i class="bi bi-filter sort icon"></i></span></th>
                 </tr>
             </thead>
             <tbody>
                 {comp.state.employees.map((employee) => {
                     const { first, last } = employee.name;
+                    const { state } = employee.location
                     const name = `${first} ${last}`;
-                    const { city, state } = employee.location
-                    const location = ` ${city}, ${state} `
+                    const location = `${state} `
                     return (
                         <tr key={employee.login.uuid}>
                             <td>
