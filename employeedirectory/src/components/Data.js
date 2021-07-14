@@ -17,9 +17,7 @@ class Data extends Component {
 
         };
     }
-    handleFormSubmit = (event) => {
-        event.preventDefault();
-    };
+
     componentDidMount() {
         API.getEmployees().then((res) => this.setState({
             employees: res.data.results,
