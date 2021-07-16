@@ -17,7 +17,7 @@ const Table = (comp) => {
                 </tr>
             </thead>
             <tbody>
-                {comp.state.employees.map((employee) => {
+                {comp.state.filteredEmp.map((employee) => {
                     const { first, last } = employee.name;
                     const { state } = employee.location
                     const name = `${first} ${last}`;
