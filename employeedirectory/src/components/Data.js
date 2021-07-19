@@ -11,7 +11,6 @@ class Data extends Component {
     get empInfo() {
         return {
             location: "",
-            phone: "",
             name: "",
             email: "",
 
