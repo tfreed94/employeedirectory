@@ -25,4 +25,4 @@ Any questions, comments, or concerns, please feel free to contact me at:
 
 * Github: https://github.com/Tfreed
 * Email: tfreedwebdev94@gmail.com
-
+* Deployed App: https://tfreed94.github.io/employeedirectory/
